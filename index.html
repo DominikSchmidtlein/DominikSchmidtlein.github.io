@@ -1,67 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<title>Dominik Schmidtlein</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="Dominik Schmidtlein">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="icon" href="icon.png">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.0.0/bootstrap-social.css">
+	
+	<script src="https://use.fontawesome.com/5d7c79e5c8.js"></script>
 
-	<title>OC Transpo Feedback</title>
+	<link rel="stylesheet" type="text/css" href="css/hoverEffect.css">
+
+	<style>
+	body {
+		position: relative;
+	}
+	#user, #projects, #contact {
+		padding-top: 50px;
+		padding-bottom: 50px;
+		/*height: 500px;*/
+	}
+	#user {
+		background-color: #fff;
+		color: #000;
+	}
+	#project-1 {
+		background-color: #fff;
+		color: #000;
+	}
+	#project-2 {
+		background-color: #fef;
+		color: #000;
+	}
+	#project-3 {
+		background-color: #eff;
+		color: #000;
+	}
+	#contact {
+		background-color: #fff;
+		color: #000;
+	}
+	footer {
+		background-color: #eee;
+		color: #000;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
+	</style>
+	
 </head>
-<body ng-app="ocTranspoFeedback">
-	<div class="container">
-		<h1>OC Transpo Feedback</h1>
-	</div>
-	<div class="main" ng-controller="MainController">
-	<div class="container">
-	<form novalidate role="form" class="simple-form">
-		<div class="form-group">
-			<label for="name">Name</label>
-			<input type="text" class="form-control" id="name" ng-model="details.name"></input>
-		</div>
-		<div class="form-group">
-			<label for="email">Email Address</label>
-			<input type="email" class="form-control" id="email" ng-model="details.email"></input>
-		</div>
-		<div class="form-group">
-			<label for="date">Date</label>
-			<input type="date" class="form-control" id="date" ng-model="details.date"></input>
-		</div>
-		<div class="form-group">
-			<label for="arrivalTime">Arrival Time to Stop</label>
-			<input type="time" class="form-control" id="arrivalTime" ng-model="details.arrivalTime"></input>
-		</div>
-		<div class="form-group">
-			<label for="departureTime">Departure Time from Stop</label>
-			<input type="time" class="form-control" id="departureTime" ng-model="details.departureTime"></input>
-		</div>
-		<div class="form-group">
-			<label for="bus">Busssy</label>
-			<select class="form-control" id="bus" ng-model="details.bus">
-				<option ng-repeat="bus in busses" value="{{ bus }}">{{ bus }}</option>
-			</select>
-		</div>
-		<div class="form-group">
-			<label for="stopNumber">Stop Number</label>
-			<input type="number" class="form-control" id="stopNumber" ng-model="details.stopNumber"></input>
-		</div>
-		<button type="submit" class="btn btn-default" ng-click="send()">Send</button>
-	</form>
-	</div>
-	<pre>{{ details | json }}</pre>
-	</div>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Dominik</a>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#user">Home</a></li>
 
-	    <!-- Modules -->
-    <script src="js/app.js"></script>
-    <!-- Controllers -->
-    <script src="js/controllers/MainController.js"></script>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Project 1
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#project-1-1">Intro</a></li>
+							<li><a href="#project-1-2">Rules</a></li>
+							<li><a href="#project-1-3">Features</a></li>
+							<li><a href="#project-1-4">Enhancements</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Project 2
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#project-2-1">Intro</a></li>
+							<li><a href="#project-2-2">Rules</a></li>
+						</ul>
+					</li>
+
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#">Project 3
+						<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#project-3-1">Intro</a></li>
+							<li><a href="#project-3-2">Rules</a></li>
+						</ul>
+					</li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<section id="user">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1 class="text-center text-uppercase">Dominik Schmidtlein</h1>
+					<img src="icon.png" class="img-circle center-block" alt="Dominik">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<h5 class="text-center">
+						Dominik is a Computer Systems Engineering student at Carleton University in Ottawa. He has built this website to highlight his personal 3 favourite software projects while displaying his web design abilities. See the links to github and linkedin below for a complete view of his profile.
+						<br>
+						<br>
+						He is available for a 4 or 8 month internship from January 2017 to August 2017. The best option for contacting Dominik is at his email below.
+					</h5>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section id="project-1">
+		<div class="container">
+			<div class="row">
+				<h1>Trace</h1>
+				<hr/>
+			</div>
+			<div class="row">
+
+				<div id="project-1-1" class="col-sm-12">
+					<div class="row">
+						<div class="col-sm-6">
+							<p>Trace is a game designed for Android phones. Trace was intended as a brain challenge for all ages. The objective is to trace all lines on screen exactly once without lifting your finger. The image is displayed in the backgroung in grey and the user's trace is in the foreground in blue.
+							</p>
+						</div>
+						<div class="col-sm-6">
+							<img class="img-responsive img-thumbnail" src="trace_house.png" alt="Trace">
+							<p class="text-center"><strong>Figure 1: Partially completed level</strong></p>
+						</div>
+					</div>
+				</div>
+
+				<div id="project-1-2" class="col-sm-12">
+					<div class="row">
+						<h2>Rules</h2>
+						<hr/>
+					</div>
+					<div class="row">
+						<div class="col-sm-6">
+							<img class="img-responsive img-thumbnail" src="trace_diamonds.png" alt="Trace">
+							<p class="text-center"><strong>Figure 2: A sample level from Trace</strong></p>
+						</div>
+						<div class="col-sm-6">
+							<p>The only rule is that all lines must be traced in one stroke without tracing any lines more than once. If your finger is lifted, all your progress is gone. If you try to redraw lines, nothing will happen.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="row">
+						<h2>Features</h2>
+						<hr/>
+					</div>
+					<div id="project-1-3" class="row">
+						<div class="col-sm-12">
+							<div class="row">
+								<div class="col-sm-6">
+									<h4>Compound Lines</h4>
+								</div>
+								<div class="col-sm-12">
+									<p>Before introducing compound lines, the user could only connect directly adjacent vertices. As a result, point 5 and 9, in the example below, could not be connected directly. Instead, the user would try to connect 5 to 9, which seem to be connect in a straight line, but the game wouldn't snap to 9.</p>
+									<p>The added ability to directly connect compound lines eliminated the feeling that the game was broken. The feature has been much appreciated by users.</p>
+								</div>
+								<div class="col-sm-8 col-sm-offset-2">
+									<img class="img-responsive img-thumbnail" src="trace_composite_line.png" alt="Trace">
+									<p class="text-center"><strong>Figure 3: The red line can be drawn in 4, 3, 2 or 1 step(s)</strong></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-12">
+					<div class="row">
+						<h2>Intro</h2>
+					</div>
+					<div id="project-1-4" class="row">
+					<div class="col-sm-12">
+						<h2>Future Enhancements</h2>
+						<h4>Scoring system</h4>
+						<ul>
+							<li><strong>time based</strong> - gain points based on completion time</li>
+							<li><strong>attempt based</strong> - gain points based on number of tries</li>
+							<li><strong>hybrid</strong> - gain points based on time and number of tries</li>
+						</ul>
+						<h4>Modes</h4>
+						<ul>
+							<li><strong>continuous mode</strong> - complete levels at your own pace, never resets</li>
+							<li><strong>speed mode</strong> - complete as many images as possible in a given period of time</li>
+							<li><strong>exhaustive mode</strong> - trace a level in every possible way before advancing (only feasible on small levels)</li>
+						</ul>
+					</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section id="project-2">
+		<div class="container">
+			<div class="row">
+				<div id="project-2-1" class="row">
+					<div class="col-sm-12">
+						<h2>Intro</h2>
+						<p>The Investment Portfolio Balancer interacts with the Questrade API to automate the balancing process of stock positions. By purchasing and selling stocks based on how their market value has changed, the IPB can maintain a desired stock ratio.</p>			
+					</div>
+				</div>
+				<div id="project-2-2" class="row">
+					<div class="col-sm-12">
+						<h2>Balancing</h2>
+						<p>The only rule is that all lines must be traced in one stroke without tracing any lines more than once. If your finger is lifted, all your progress is gone. If you try to redraw lines, nothing will happen.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<div id="project-3">
+		<div class="container">
+			<div class="row">
+				<div id="project-3-1" class="row">
+					<div class="col-sm-12">
+						<h2>Intro</h2>
+					</div>
+					<div class="col-sm-6">
+						<p>Trace is a game designed for Android phones. Trace was intended as a brain challenge for all ages. The objective is to trace all lines on screen exactly once without lifting your finger. The image is displayed in the backgroung in grey and the user's trace is in the foreground in blue.
+						</p>
+					</div>						
+				</div>
+				<div id="project-3-2" class="row">
+					<div class="col-sm-12">
+						<h2>Rules</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="contact">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1 class="text-center">Contact</h1>
+					<h2 class="text-center">dominik.schmidtlein@gmail.com</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer class="text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-4">
+					<ul class="list-inline">
+						<li><a href="https://github.com/DominikSchmidtlein" class="btn-social btn-outline"><i class="fa fa-fw fa-github fa-3x"></i></a></li>
+						<li><a href="https://www.linkedin.com/in/dominikschmidtlein" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin fa-3x"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 </body>
 </html>
